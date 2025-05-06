@@ -3,19 +3,25 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-const LoginSchema = z.object({
+const SignInSchema = z.object({
   email: z.string().email('Введён невалидный email'),
   password: z.string().min(8, 'Пароль должен быть минимум 8 символов'),
+  confirmPassword: z.string().min(8, 'Пароль должен быть минимум 8 симолов'),
+  name: z.string().min(2)
+})
+.refine((data) => data.password === data.confirmPassword, {
+    message: 'Пароли не совпадают',
+    path: ['confirmPassword'],
 });
 
-const LogInForm = () => {
+const SignInForm = () => {
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: zodResolver(LoginSchema),
+    resolver: zodResolver(SignInSchema),
   });
 
   const onFormSubmit = (data) => {
@@ -49,6 +55,29 @@ const LogInForm = () => {
         {...register('password')}
       />
       {errors.password && <span style={{ color: 'red' }}>{errors.password.message}</span>}
+      <Input
+        isRequired
+        label='Повторите пароль'
+        labelPlacement='outside'
+        type="password"
+        id='confirmPassword'
+        size='md'
+        color='secondary'
+        variant='bordered'
+        {...register('confirmPassword')}
+      />
+      {errors.confirmPassword && <span style={{ color: 'red' }}>{errors.confirmPassword.message}</span>}
+      <Input
+        isRequired
+        label='Имя'
+        labelPlacement='outside'
+        type="text"
+        id='name'
+        size='md'
+        color='secondary'
+        variant='bordered'
+        {...register('name')}
+      />
       <Button
         type="submit"
         color='secondary'
@@ -57,9 +86,9 @@ const LogInForm = () => {
         radius='full'
         isLoading={isSubmitting}
       >
-        Войти
+        Отправить
       </Button>
     </Form >
   );
 };
-export default LogInForm;
+export default SignInForm;
