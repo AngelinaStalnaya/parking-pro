@@ -24,11 +24,11 @@ const SlotList = ({ daySelected, onClose, handleSlotSelectConfirm }: SlotListPro
     return (
         <>
             <h2>Доступные слоты на {daySelected.split('-').join('/')}</h2>
-            <RadioGroup value={selected} onValueChange={setSelected}>
-                {parkingSlots.map(slot => <Radio key={slot.id} value={slot.time} isDisabled={slot.available} >{slot.time}{!!slot.available && ' (занято)' }</Radio>)}
-            </RadioGroup>
-            <p className="text-secondary from-semibold text-small">Selected: {selected}</p>
-            <Button onPress={submitSelection}>Choose</Button>
+                <RadioGroup value={selected} onValueChange={setSelected}>
+                    {parkingSlots.map(slot => <Radio key={slot.id} value={slot.time} isDisabled={slot.available} >{slot.time}{!!slot.available && ' (занято)'}</Radio>)}
+                </RadioGroup>
+                <p className="text-secondary from-semibold text-small">Selected: {selected}</p>
+                <Button onPress={submitSelection}>Choose</Button>
         </>
     )
 }

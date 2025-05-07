@@ -43,21 +43,22 @@ const columns = [
 
 interface TableProps {
     handleParkingSlotSelection: (e: Selection) => void;
+    label: string;
 }
 
-const TableComponent = ({handleParkingSlotSelection}: TableProps) => {
+const TableComponent = ({handleParkingSlotSelection, label}: TableProps) => {
     const [selectedSlot, setSelectedSlot] = useState<Selection | string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleSlotSelection = (e: Selection) => {
         setSelectedSlot(e)
-        handleParkingSlotSelection(e)
+        {handleParkingSlotSelection && handleParkingSlotSelection(e)}
     }
 
     return (
         <div className="flex flex-col">
-            <h2 className="text-2xl text-secondary-800 font-bold">Список парковочных мест</h2>
-            <Table aria-label="Список парковочных мест" color='secondary' selectionMode='single' selectedKeys={selectedSlot} onSelectionChange={e => handleSlotSelection(e)}>
+            <h2 className="text-2xl text-secondary-800 font-bold">{label}</h2>
+            <Table aria-label={label} color='secondary' selectionMode='single' selectedKeys={selectedSlot} onSelectionChange={e => handleSlotSelection(e)}>
                 <TableHeader columns={columns}>
                     {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
                 </TableHeader>

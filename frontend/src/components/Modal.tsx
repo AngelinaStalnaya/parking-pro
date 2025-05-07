@@ -4,14 +4,16 @@ import {
     ModalBody,
 } from "@heroui/react";
 import SlotList from "./SlotList";
+import EditCard from "./EditCard";
 
 interface ModalProps {
-    daySelected: string;
+    daySelected?: string;
     isOpen: boolean | undefined;
     onOpenChange: () => void;
+    editSlotId?: string;
 }
 
-const ModalComponent = ({ daySelected, isOpen, onOpenChange }: ModalProps) => {
+const ModalComponent = ({ daySelected, isOpen, onOpenChange, editSlotId }: ModalProps) => {
 
     const handleSlotSelectConfirm = (slot: string) => {
         // DB add
@@ -23,7 +25,8 @@ const ModalComponent = ({ daySelected, isOpen, onOpenChange }: ModalProps) => {
                 <ModalContent>
                     {(onClose) => (
                         <ModalBody className="flex flex-col gap-3 items-center w-full">
-                            {<SlotList daySelected={daySelected} onClose={onClose} handleSlotSelectConfirm={handleSlotSelectConfirm} />}
+                            {daySelected && <SlotList daySelected={daySelected} onClose={onClose} handleSlotSelectConfirm={handleSlotSelectConfirm} />}
+                            {editSlotId && <EditCard id={editSlotId} onClose={onClose}/>}
                         </ModalBody>
                     )}
                 </ModalContent>
