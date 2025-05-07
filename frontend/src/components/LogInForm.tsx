@@ -52,9 +52,7 @@ const LogInForm = () => {
       <Button
         type="submit"
         color='secondary'
-        variant='shadow'
-        size='md'
-        radius='full'
+        variant='flat'
         isLoading={isSubmitting}
       >
         Войти

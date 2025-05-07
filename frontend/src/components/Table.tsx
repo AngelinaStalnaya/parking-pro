@@ -13,17 +13,17 @@ import { useState } from "react";
 
 const rows = [
     {
-        key: "1",
+        key: "gvrgbhrtb",
         slot: "A-01",
         address: "Улица 1",
     },
     {
-        key: "2",
+        key: "ersbdrb",
         slot: "A-02",
         address: "Улица 1",
     },
     {
-        key: "3",
+        key: "rbrbt",
         slot: "A-03",
         address: "Улица 1",
     },
@@ -42,17 +42,16 @@ const columns = [
 ];
 
 interface TableProps {
-    handleParkingSlotSelection: () => void;
+    handleParkingSlotSelection: (e: Selection) => void;
 }
 
 const TableComponent = ({handleParkingSlotSelection}: TableProps) => {
-    const [selectedSlot, setSelectedSlot] = useState<Selection>();
+    const [selectedSlot, setSelectedSlot] = useState<Selection | string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleSlotSelection = (e: Selection) => {
         setSelectedSlot(e)
-        console.log(e)
-        handleParkingSlotSelection()
+        handleParkingSlotSelection(e)
     }
 
     return (

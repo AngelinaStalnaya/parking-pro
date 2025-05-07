@@ -81,9 +81,7 @@ const SignInForm = () => {
       <Button
         type="submit"
         color='secondary'
-        variant='shadow'
-        size='md'
-        radius='full'
+        variant='flat'
         isLoading={isSubmitting}
       >
         Отправить

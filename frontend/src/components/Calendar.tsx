@@ -17,15 +17,12 @@ const CalendarComponent = ({ handleDaySelection, disabledDates=['2025-05-13'] }:
         handleDaySelection(e);
     }
 
-
     let propsDidsabledDates = disabledDates?.map(item => parseDate(item))
-
 
     const isDateUnavailable = (date: { compare: (arg0: CalendarDate) => number; }) =>
         propsDidsabledDates.some(
             (disabledDate) => date.compare(disabledDate) == 0,
         );
-
 
     return (
         <I18nProvider locale='ru-RU'>
