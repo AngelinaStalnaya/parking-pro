@@ -30,7 +30,7 @@ const SignInForm = () => {
 
 
   return (
-    <Form onSubmit={handleSubmit(onFormSubmit)} className='flex flex-col min-w-[250px] w-auto border-2 rounded-2xl border-secondary p-2'>
+    <Form onSubmit={handleSubmit(onFormSubmit)} className='flex flex-col min-w-[250px] w-auto border-2 rounded-2xl border-secondary p-3'>
       <Input
         isRequired
         label='Email'

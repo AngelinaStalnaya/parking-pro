@@ -1,12 +1,13 @@
-// import CalendarComponent from './components/ui/Calendar';
-import Auth from './pages/Auth';
+
+import Table from './components/Table';
+
+
 
 
 function App() {
   return (
-    <>
-      {/* <CalendarComponent handleDaySelection={(e) => console.log('day clicked', e.toString())} /> */}
-      <Auth/>
+    <>   
+      <Table handleParkingSlotSelection={()=> console.log('redirect to calendar')}/>
     </>
   )
 }
