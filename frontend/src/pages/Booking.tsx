@@ -12,7 +12,7 @@ const Booking = () => {
     const navigate = useNavigate();
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [day, setDay] = useState<string>('')
- 
+
 
     const handleBooking = (e: DateValue) => {
         setDay(e.toString())
@@ -25,7 +25,8 @@ const Booking = () => {
         slot: 'A-02',
         address: 'г. Минск, ул. Центрaльная, 1',
     }
-
+    // fetch slot data with parms.id
+    
     return (
         <Card className='border-2 rounded-2xl border-secondary flex w-full'>
             <CardHeader><Logo /></CardHeader>
@@ -36,7 +37,7 @@ const Booking = () => {
                 <p className="text-secondary mb-3">{data.address}</p>
                 <Divider className="mb-2" />
                 <Calendar handleDaySelection={handleBooking} />
-                <ModalComponent isOpen={isOpen} onOpenChange={onOpenChange} daySelected={day}/>
+                <ModalComponent isOpen={isOpen} onOpenChange={onOpenChange} daySelected={day} />
             </CardBody>
         </Card>
     )

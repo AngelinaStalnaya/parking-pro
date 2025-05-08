@@ -16,7 +16,7 @@ interface ModalProps {
 const ModalComponent = ({ daySelected, isOpen, onOpenChange, editSlotId }: ModalProps) => {
 
     const handleSlotSelectConfirm = (slot: string) => {
-        // DB add
+        // DB save booking
         console.log(daySelected, slot)
     }
     return (

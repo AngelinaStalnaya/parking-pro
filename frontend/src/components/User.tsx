@@ -8,8 +8,6 @@ const UserComponent = ({ sex }: { sex: string }) => {
             className="w-20 h-20 text-large"
             src={sex === 'male' ? male : female}
         />
-
-
     );
 }
 

@@ -15,7 +15,7 @@ const EditCard = ({ id, onClose }: EditCardProps) => {
     //     status: string;
     // }
     const handleDeleteBooking = () => {
-        // fetch pathc with id = staatus update
+        // fetch path with id = status update + async
         onClose()
     }
 

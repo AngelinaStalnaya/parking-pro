@@ -29,6 +29,7 @@ const rows = [
     },
 
 ];
+// fetch rows? + suspense ui
 
 const columns = [
     {
@@ -40,6 +41,7 @@ const columns = [
         label: "Адрес",
     },
 ];
+// fetch cols?
 
 interface TableProps {
     handleParkingSlotSelection: (e: Selection) => void;
